@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
+import BoardRow from "./components/Board/BoardRow";
+
+/**
+ * state:
+ *  board - matrix
+ *  currentPlayer - 'X' or 'O'
+ *  gameIsOver: false
+ *  winner: null
+ */
+const boardLayout = [
+  [0, 0, 0],
+  [0, 0, 0],
+  [0, 0, 0],
+];
+
+const App = () => {
+  const [board, updateBoard] = useState(boardLayout);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Tic Tac Toe</h1>
       </header>
+      <main>
+        <div className="Board">
+          {board.map((row) => {
+            return <BoardRow row={row} />;
+          })}
+        </div>
+      </main>
     </div>
   );
-}
+};
 
 export default App;
