@@ -7,6 +7,14 @@
   pointer-events: none;
 }
 
+.App main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  margin-top: 15px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -35,4 +43,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Board {
+  width: 500px;
+  height: 500px;
 }

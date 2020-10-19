@@ -34,6 +34,7 @@ const App = () => {
     togglePlayerTurn(nextPlayer);
   };
 
+  console.log(board);
   return (
     <div className="App">
       <header className="App-header">
@@ -42,7 +43,9 @@ const App = () => {
       <main>
         <div className="Board">
           {board.map((row, i) => {
-            return <BoardRow row={row} rowIndex={i} />;
+            return (
+              <BoardRow row={row} rowIndex={i} select={handlePlayerMove} />
+            );
           })}
         </div>
       </main>
