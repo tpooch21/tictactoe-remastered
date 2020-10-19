@@ -19,6 +19,20 @@ const boardLayout = [
 
 const App = () => {
   const [board, updateBoard] = useState(boardLayout);
+  const [playerTurn, togglePlayerTurn] = useState("X");
+
+  const handlePlayerMove = (row, col) => {
+    const boardCopy = [];
+    board.forEach((row) => {
+      boardCopy.push([...row]);
+    });
+
+    boardCopy[row][col] = playerTurn;
+    updateBoard(boardCopy);
+
+    const nextPlayer = playerTurn === "X" ? "O" : "X";
+    togglePlayerTurn(nextPlayer);
+  };
 
   return (
     <div className="App">
@@ -27,8 +41,8 @@ const App = () => {
       </header>
       <main>
         <div className="Board">
-          {board.map((row) => {
-            return <BoardRow row={row} />;
+          {board.map((row, i) => {
+            return <BoardRow row={row} rowIndex={i} />;
           })}
         </div>
       </main>
