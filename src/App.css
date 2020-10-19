@@ -8,11 +8,11 @@
 }
 
 .App main {
-  display: flex;
   height: 100%;
   width: 100%;
-  justify-content: center;
+  align-content: center;
   margin-top: 15px;
+  font-family: "Play", sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -48,4 +48,6 @@
 .Board {
   width: 500px;
   height: 500px;
+  font-family: inherit;
+  margin: auto;
 }

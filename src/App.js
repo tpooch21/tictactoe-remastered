@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import BoardRow from "./components/Board/BoardRow";
+import PlayerTurnHeader from "./components/PlayerTurn/index";
 
 /**
  * state:
@@ -41,6 +42,7 @@ const App = () => {
         <h1>Tic Tac Toe</h1>
       </header>
       <main>
+        <PlayerTurnHeader>Player {playerTurn}, you're up!</PlayerTurnHeader>
         <div className="Board">
           {board.map((row, i) => {
             return (
