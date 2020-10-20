@@ -1,5 +1,5 @@
 // Check rows for 3 in a row
-export const threeInARow = (board) => {
+const threeInARow = (board) => {
   for (let i = 0; i < board.length; i++) {
     const total = board[i].reduce((acc, curr) => {
       if (curr === "X") {
@@ -15,7 +15,7 @@ export const threeInARow = (board) => {
 };
 
 // Check columns for 3 in a row
-export const threeInACol = (board) => {
+const threeInACol = (board) => {
   for (let j = 0; j < board[0].length; j++) {
     let firstSeen;
     let winner = true;
@@ -38,3 +38,38 @@ export const threeInACol = (board) => {
 };
 
 // Check diagonals
+const threeInADiag = (board) => {
+  if (
+    board[0][0] !== 0 &&
+    board[0][0] === board[1][1] &&
+    board[1][1] === board[2][2]
+  )
+    return true;
+  if (
+    board[0][2] !== 0 &&
+    board[0][2] === board[1][1] &&
+    board[1][1] === board[2][0]
+  )
+    return true;
+  else return false;
+};
+
+export const checkForCatsGame = (board) => {
+  const sumAll = board.reduce((rowAcc, rowCurr) => {
+    return (
+      rowAcc +
+      rowCurr.reduce((colAcc, colCurr) => {
+        if (colCurr !== 0) return colAcc + 1;
+        else return colAcc;
+      }, 0)
+    );
+  }, 0);
+
+  return sumAll === 9;
+};
+
+export const checkAllDirections = (board) => {
+  if (threeInARow(board) || threeInACol(board) || threeInADiag(board)) {
+    return true;
+  } else return false;
+};

@@ -4,7 +4,10 @@ import "./App.css";
 
 import BoardRow from "./components/Board/BoardRow";
 import PlayerTurnHeader from "./components/PlayerTurn/index";
-import { threeInARow, threeInACol } from "./helpers/checkBoardFunctions";
+import {
+  checkAllDirections,
+  checkForCatsGame,
+} from "./helpers/checkBoardFunctions";
 import PlayAgainButton from "./components/PlayAgainButton/index";
 
 /**
@@ -39,9 +42,11 @@ const App = () => {
   };
 
   const checkForWinner = (boardCopy) => {
-    if (threeInARow(boardCopy) || threeInACol(boardCopy)) {
+    if (checkAllDirections(boardCopy)) {
       toggleGameOver(true);
       updateWinner(playerTurn);
+    } else if (checkForCatsGame(boardCopy)) {
+      toggleGameOver(true);
     } else {
       const nextPlayer = playerTurn === "X" ? "O" : "X";
       togglePlayerTurn(nextPlayer);
