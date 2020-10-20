@@ -4,7 +4,7 @@ import "./App.css";
 
 import BoardRow from "./components/Board/BoardRow";
 import PlayerTurnHeader from "./components/PlayerTurn/index";
-import { threeInARow } from "./helpers/checkBoardFunctions";
+import { threeInARow, threeInACol } from "./helpers/checkBoardFunctions";
 
 /**
  * state:
@@ -39,7 +39,8 @@ const App = () => {
   };
 
   const checkForWinner = (boardCopy) => {
-    if (threeInARow(boardCopy)) alert("We have a winner!");
+    if (threeInARow(boardCopy)) alert("We have three in a row!");
+    if (threeInACol(boardCopy)) alert("We have three in a column!");
   };
 
   console.log(board);
