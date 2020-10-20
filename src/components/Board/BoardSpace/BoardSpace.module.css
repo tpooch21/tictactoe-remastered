@@ -9,3 +9,8 @@
   font-weight: 800;
   font-family: inherit;
 }
+
+.BoardSpace .disabled {
+  border: 1px solid blue;
+  color: red;
+}

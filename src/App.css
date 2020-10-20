@@ -13,6 +13,9 @@
   align-content: center;
   margin-top: 15px;
   font-family: "Play", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -49,5 +52,4 @@
   width: 500px;
   height: 500px;
   font-family: inherit;
-  margin: auto;
 }
