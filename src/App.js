@@ -4,6 +4,7 @@ import "./App.css";
 
 import BoardRow from "./components/Board/BoardRow";
 import PlayerTurnHeader from "./components/PlayerTurn/index";
+import { threeInARow } from "./helpers/checkBoardFunctions";
 
 /**
  * state:
@@ -31,8 +32,14 @@ const App = () => {
     boardCopy[row][col] = playerTurn;
     updateBoard(boardCopy);
 
+    checkForWinner(boardCopy);
+
     const nextPlayer = playerTurn === "X" ? "O" : "X";
     togglePlayerTurn(nextPlayer);
+  };
+
+  const checkForWinner = (boardCopy) => {
+    if (threeInARow(boardCopy)) alert("We have a winner!");
   };
 
   console.log(board);
